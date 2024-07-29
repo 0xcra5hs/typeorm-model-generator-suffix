@@ -3,6 +3,9 @@
 [![npm version](https://badge.fury.io/js/typeorm-model-generator.svg)](https://badge.fury.io/js/typeorm-model-generator)
 [![codecov](https://codecov.io/gh/Kononnable/typeorm-model-generator/branch/master/graph/badge.svg)](https://codecov.io/gh/Kononnable/typeorm-model-generator)
 
+
+Add more future: --suffix-file
+
 Generates models for TypeORM from existing databases.
 Supported db engines:
 * Microsoft SQL Server
@@ -53,7 +56,7 @@ Options:
                          and postgres. You can pass multiple values
                          separated by comma eg. -s scheme1,scheme2,scheme3
   --ssl                                               [boolean] [default: false]
-  **--suffix-file .entity**
+  --suffix-file          .entity
 ```
 ### Examples
 
