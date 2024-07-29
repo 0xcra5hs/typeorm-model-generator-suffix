@@ -210,6 +210,12 @@ function checkYargsParameters(options: options): options {
             default: options.generationOptions.convertCaseFile,
             describe: "Convert file names to specified case",
         },
+        sf: {
+            alias: "suffix-file",
+            string: true,
+            default: "",
+            describe: "Suffix after filename",
+        },
         ce: {
             alias: "case-entity",
             choices: ["pascal", "camel", "none"],
@@ -331,6 +337,8 @@ function checkYargsParameters(options: options): options {
         argv.ce as IGenerationOptions["convertCaseEntity"];
     options.generationOptions.convertCaseFile =
         argv.cf as IGenerationOptions["convertCaseFile"];
+    options.generationOptions.suffixCaseFile =
+        argv.sf as IGenerationOptions["suffixCaseFile"];
     options.generationOptions.convertCaseProperty =
         argv.cp as IGenerationOptions["convertCaseProperty"];
     options.generationOptions.convertEol =
@@ -524,6 +532,16 @@ async function useInquirer(options: options): Promise<options> {
             {
                 default: options.generationOptions.resultsPath,
                 message: "Path where generated models should be stored:",
+                name: "output",
+                type: "input",
+            },
+        ])
+    ).output;
+    options.generationOptions.suffixCaseFile = (
+        await inquirer.prompt([
+            {
+                default: "",
+                message: "Suffix after file name u want?",
                 name: "output",
                 type: "input",
             },
