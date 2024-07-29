@@ -77,7 +77,7 @@ function generateModels(
         }
         const resultFilePath = path.resolve(
             entitiesPath,
-            `${casedFileName + generationOptions.suffixCaseFile}.ts`
+            `${casedFileName}.ts`
         );
         const rendered = entityCompliedTemplate(element);
         const withImportStatements = removeUnusedImports(
@@ -131,7 +131,7 @@ function createIndexFile(
             break;
         default:
     }
-    const resultFilePath = path.resolve(entitiesPath, `${fileName + generationOptions.suffixCaseFile}.ts`);
+    const resultFilePath = path.resolve(entitiesPath, `${fileName}.ts`);
     fs.writeFileSync(resultFilePath, formatted, {
         encoding: "utf-8",
         flag: "w",

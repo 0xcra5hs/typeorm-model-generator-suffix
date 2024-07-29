@@ -66,14 +66,19 @@ export function relationName(relation: Relation, owner?: Entity): string {
     return newColumnName;
 }
 
-export function entityName(oldEntityName: string, entity?: Entity): string {
-    return oldEntityName;
+export function entityName(
+    oldEntityName: string,
+    suffixName: String,
+    entity?: Entity
+): string {
+    return oldEntityName + suffixName;
 }
 
 export function columnName(oldColumnName: string, column?: Column): string {
     return oldColumnName;
 }
 
-export function fileName(oldFileName: string): string {
-    return oldFileName;
+export function fileName(oldFileName: string, suffixName: string): string {
+    const baseName = oldFileName.replace(/([A-Z].*)$/, "");
+    return baseName + suffixName;
 }

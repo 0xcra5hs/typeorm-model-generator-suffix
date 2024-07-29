@@ -222,6 +222,12 @@ function checkYargsParameters(options: options): options {
             default: options.generationOptions.convertCaseEntity,
             describe: "Convert class names to specified case",
         },
+        cef: {
+            alias: "suffix-class",
+            string: true,
+            default: "",
+            describe: "Suffix after className",
+        },
         cp: {
             alias: "case-property",
             choices: ["pascal", "camel", "snake", "none"],
@@ -339,6 +345,8 @@ function checkYargsParameters(options: options): options {
         argv.cf as IGenerationOptions["convertCaseFile"];
     options.generationOptions.suffixCaseFile =
         argv.sf as IGenerationOptions["suffixCaseFile"];
+    options.generationOptions.suffixClassName =
+        argv.csf as IGenerationOptions["suffixClassName"];
     options.generationOptions.convertCaseProperty =
         argv.cp as IGenerationOptions["convertCaseProperty"];
     options.generationOptions.convertEol =
@@ -542,6 +550,16 @@ async function useInquirer(options: options): Promise<options> {
             {
                 default: "",
                 message: "Suffix after file name u want?",
+                name: "output",
+                type: "input",
+            },
+        ])
+    ).output;
+    options.generationOptions.suffixClassName = (
+        await inquirer.prompt([
+            {
+                default: "",
+                message: "Suffix after class name u want?",
                 name: "output",
                 type: "input",
             },

@@ -4,7 +4,9 @@
 [![codecov](https://codecov.io/gh/Kononnable/typeorm-model-generator/branch/master/graph/badge.svg)](https://codecov.io/gh/Kononnable/typeorm-model-generator)
 
 
-Add more future: --suffix-file
+About database first, not entity first
+
+Add more future: --suffix-file, --suffix-class
 
 Generates models for TypeORM from existing databases.
 Supported db engines:
@@ -57,6 +59,7 @@ Options:
                          separated by comma eg. -s scheme1,scheme2,scheme3
   --ssl                                               [boolean] [default: false]
   --suffix-file          .entity
+  --suffix-class         Entity
 ```
 ### Examples
 

@@ -90,7 +90,12 @@ export default function modelCustomizationPhase(
     namingStrategy.enablePluralization(generationOptions.pluralizeNames);
     let retVal = removeIndicesGeneratedByTypeorm(dbModel);
     retVal = removeColumnsInRelation(dbModel);
-    retVal = applyNamingStrategy(namingStrategy, dbModel);
+    retVal = applyNamingStrategy(
+        namingStrategy,
+        dbModel,
+        generationOptions.suffixClassName,
+        generationOptions.suffixCaseFile
+    );
     retVal = addImportsAndGenerationOptions(retVal, generationOptions);
     retVal = removeColumnDefaultProperties(retVal, defaultValues);
     return retVal;
@@ -247,13 +252,15 @@ function addImportsAndGenerationOptions(
 
 function applyNamingStrategy(
     namingStrategy: typeof NamingStrategy,
-    dbModel: Entity[]
+    dbModel: Entity[],
+    suffixClassName: string,
+    suffixFile: string
 ): Entity[] {
     let retVal = changeRelationNames(dbModel);
     retVal = changeRelationIdNames(retVal);
-    retVal = changeEntityNames(retVal);
+    retVal = changeEntityNames(retVal, suffixClassName);
     retVal = changeColumnNames(retVal);
-    retVal = changeFileNames(retVal);
+    retVal = changeFileNames(retVal, suffixFile);
     return retVal;
 
     function changeRelationIdNames(model: Entity[]): Entity[] {
@@ -345,9 +352,16 @@ function applyNamingStrategy(
         });
         return model;
     }
-    function changeEntityNames(entities: Entity[]): Entity[] {
+    function changeEntityNames(
+        entities: Entity[],
+        suffixName: string
+    ): Entity[] {
         entities.forEach((entity) => {
-            const newName = namingStrategy.entityName(entity.tscName, entity);
+            const newName = namingStrategy.entityName(
+                entity.tscName,
+                suffixName,
+                entity
+            );
             entities.forEach((entity2) => {
                 entity2.relations.forEach((relation) => {
                     if (relation.relatedTable === entity.tscName) {
@@ -360,9 +374,9 @@ function applyNamingStrategy(
         });
         return entities;
     }
-    function changeFileNames(entities: Entity[]): Entity[] {
+    function changeFileNames(entities: Entity[], suffix: string): Entity[] {
         entities.forEach((entity) => {
-            entity.fileName = namingStrategy.fileName(entity.fileName);
+            entity.fileName = namingStrategy.fileName(entity.fileName, suffix);
         });
         return entities;
     }

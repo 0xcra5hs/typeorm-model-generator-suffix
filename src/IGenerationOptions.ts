@@ -11,6 +11,7 @@ export default interface IGenerationOptions {
     noConfigs: boolean;
     convertCaseFile: "pascal" | "param" | "camel" | "none";
     suffixCaseFile: string;
+    suffixClassName: string;
     convertCaseEntity: "pascal" | "camel" | "none";
     convertCaseProperty: "pascal" | "camel" | "snake" | "none";
     convertEol: "LF" | "CRLF";
@@ -42,6 +43,7 @@ export function getDefaultGenerationOptions(): IGenerationOptions {
         convertEol: EOL === "\n" ? "LF" : "CRLF",
         propertyVisibility: "none",
         suffixCaseFile: "",
+        suffixClassName: "",
         lazy: false,
         activeRecord: false,
         generateConstructor: false,

@@ -1,8 +1,10 @@
 {
-  "name": "typeorm-model-generator",
+  "name": "typeorm-model-generator-suffix",
   "version": "0.4.6",
   "description": "Generates models for TypeORM from existing databases.",
-  "bin": "bin/typeorm-model-generator",
+  "bin": {
+    "typeorm-model-generator": "bin/typeorm-model-generator"
+  },
   "main": "./dist/src/library.js",
   "types": "./dist/src/library.d.ts",
   "scripts": {
@@ -17,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Cra5hs/typeorm-model-generator-suffix"
+    "url": "git+https://github.com/Cra5hs/typeorm-model-generator-suffix.git"
   },
   "author": "cra5hs",
   "license": "MIT",
@@ -101,5 +103,8 @@
     "include": [
       "src/**/!(*.test.*).[tj]s?(x)"
     ]
+  },
+  "directories": {
+    "test": "test"
   }
 }

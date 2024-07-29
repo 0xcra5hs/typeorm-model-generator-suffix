@@ -14,7 +14,7 @@ export function relationName(relation: Relation): string {
 }
 
 export function entityName(oldEntityName: string): string {
-    return `${NamingStrategy.entityName(oldEntityName)}_B`;
+    return `${NamingStrategy.entityName(oldEntityName, "Entity")}_B`;
 }
 
 export function columnName(oldColumnName: string): string {
