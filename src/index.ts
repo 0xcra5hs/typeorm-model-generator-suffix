@@ -346,7 +346,7 @@ function checkYargsParameters(options: options): options {
     options.generationOptions.suffixCaseFile =
         argv.sf as IGenerationOptions["suffixCaseFile"];
     options.generationOptions.suffixClassName =
-        argv.csf as IGenerationOptions["suffixClassName"];
+        argv.cef as IGenerationOptions["suffixClassName"];
     options.generationOptions.convertCaseProperty =
         argv.cp as IGenerationOptions["convertCaseProperty"];
     options.generationOptions.convertEol =
