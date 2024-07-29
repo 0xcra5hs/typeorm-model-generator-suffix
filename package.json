@@ -1,6 +1,6 @@
 {
   "name": "typeorm-model-generator-suffix",
-  "version": "0.4.6",
+  "version": "0.4.7",
   "description": "Generates models for TypeORM from existing databases.",
   "bin": {
     "typeorm-model-generator": "bin/typeorm-model-generator"
