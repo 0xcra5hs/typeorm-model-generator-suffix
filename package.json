@@ -17,14 +17,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Kononnable/typeorm-model-generator.git"
+    "url": "git+https://github.com/Cra5hs/typeorm-model-generator-suffix"
   },
-  "author": "Kononnable",
+  "author": "cra5hs",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Kononnable/typeorm-model-generator/issues"
+    "url": "https://github.com/Cra5hs/typeorm-model-generator-suffix/issues"
   },
-  "homepage": "https://github.com/Kononnable/typeorm-model-generator#readme",
+  "homepage": "https://github.com/Cra5hs/typeorm-model-generator-suffixr#readme",
   "dependencies": {
     "change-case": "^4.1.2",
     "fs-extra": "^9.1.0",
