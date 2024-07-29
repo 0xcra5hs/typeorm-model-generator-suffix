@@ -3,9 +3,6 @@
 [![npm version](https://badge.fury.io/js/typeorm-model-generator.svg)](https://badge.fury.io/js/typeorm-model-generator)
 [![codecov](https://codecov.io/gh/Kononnable/typeorm-model-generator/branch/master/graph/badge.svg)](https://codecov.io/gh/Kononnable/typeorm-model-generator)
 
-***
-## :warning: This project is in a maintenance phase. See [#329](https://github.com/Kononnable/typeorm-model-generator/issues/329) for details.
-***
 Generates models for TypeORM from existing databases.
 Supported db engines:
 * Microsoft SQL Server
@@ -56,6 +53,7 @@ Options:
                          and postgres. You can pass multiple values
                          separated by comma eg. -s scheme1,scheme2,scheme3
   --ssl                                               [boolean] [default: false]
+  **--suffix-file .entity**
 ```
 ### Examples
 
