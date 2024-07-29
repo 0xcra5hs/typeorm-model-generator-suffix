@@ -22,5 +22,5 @@ export function columnName(oldColumnName: string): string {
 }
 
 export function fileName(oldFileName: string): string {
-    return `${NamingStrategy.fileName(oldFileName)}_D`;
+    return `${NamingStrategy.fileName(oldFileName, "Entity")}_D`;
 }
