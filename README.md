@@ -3,6 +3,8 @@
 [![npm version](https://badge.fury.io/js/typeorm-model-generator.svg)](https://badge.fury.io/js/typeorm-model-generator)
 [![codecov](https://codecov.io/gh/Kononnable/typeorm-model-generator/branch/master/graph/badge.svg)](https://codecov.io/gh/Kononnable/typeorm-model-generator)
 
+![image](https://github.com/user-attachments/assets/c082de79-ee7b-45e4-abf2-fc8f6985e4fa)
+
 
 About database first, not entity first
 
