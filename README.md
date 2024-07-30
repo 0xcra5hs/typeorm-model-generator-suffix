@@ -10,6 +10,11 @@ About database first, not entity first
 
 Add more future: --suffix-file, --suffix-class
 
+## NEW WAY
+```shell
+typeorm-model-generator -h 127.0.0.1 -d db -p 1433 -u sa -x pwd -e mssql --case-file none --suffix-file .entity --suffix-class Entity -o ./src
+```
+
 Generates models for TypeORM from existing databases.
 Supported db engines:
 * Microsoft SQL Server
