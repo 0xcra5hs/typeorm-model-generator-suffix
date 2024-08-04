@@ -416,11 +416,12 @@ export default abstract class AbstractDriver {
                 });
             if (
                 !entity.columns.some((v) => {
-                    dbNewModel.push(entity);
                     return !!v.primary;
                 })
             ) {
                 TomgUtils.LogError(`Table ${entity.tscName} has no PK.`, false);
+            } else {
+                dbNewModel.push(entity);
             }
         });
         return dbNewModel;
