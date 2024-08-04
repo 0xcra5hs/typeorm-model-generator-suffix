@@ -68,7 +68,7 @@ export function relationName(relation: Relation, owner?: Entity): string {
 
 export function entityName(
     oldEntityName: string,
-    suffixName: String,
+    suffixName: string,
     entity?: Entity
 ): string {
     return oldEntityName + suffixName;
