@@ -1,4 +1,4 @@
-# typeorm-model-generator
+# typeorm-model-generator-suffix
 
 [![npm version](https://badge.fury.io/js/typeorm-model-generator.svg)](https://badge.fury.io/js/typeorm-model-generator)
 [![codecov](https://codecov.io/gh/Kononnable/typeorm-model-generator/branch/master/graph/badge.svg)](https://codecov.io/gh/Kononnable/typeorm-model-generator)
@@ -34,7 +34,7 @@ TU79Fc8UZSPGqPBhm2Mk4ndgmVWRKCnjxB
 ```
 
 ```
-ETH - ZkSync - Poligon - Multichain - Any token
+ETH - ZkSync - Polygon - Multichain - Any token
 0x1F0685725D12084b9e1F0dB4feC12Aa22AB3A8D7
 ```
 

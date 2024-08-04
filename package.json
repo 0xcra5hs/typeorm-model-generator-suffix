@@ -1,6 +1,6 @@
 {
   "name": "typeorm-model-generator-suffix",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Generates models for TypeORM from existing databases.",
   "bin": {
     "typeorm-model-generator": "bin/typeorm-model-generator"
@@ -17,6 +17,7 @@
     "clean": "rimraf coverage output dist",
     "prettier": "prettier --write ./src/*.ts ./src/**/*.ts"
   },
+  "keywords": ["typeorm", "suffix", "dbfirst", "nestjs"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Cra5hs/typeorm-model-generator-suffix.git"
