@@ -186,7 +186,7 @@ export default abstract class AbstractDriver {
             connectionOptions.schemaNames,
             connectionOptions.databaseNames
         );
-        AbstractDriver.FindPrimaryColumnsFromIndexes(dbModel);
+        dbModel = AbstractDriver.FindPrimaryColumnsFromIndexes(dbModel);
         dbModel = await this.GetRelations(
             dbModel,
             connectionOptions.schemaNames,
@@ -396,6 +396,7 @@ export default abstract class AbstractDriver {
     ): Promise<Entity[]>;
 
     public static FindPrimaryColumnsFromIndexes(dbModel: Entity[]) {
+        const dbNewModel: Entity[] = [];
         dbModel.forEach((entity) => {
             const primaryIndex = entity.indices.find((v) => v.primary);
             entity.columns
@@ -415,12 +416,14 @@ export default abstract class AbstractDriver {
                 });
             if (
                 !entity.columns.some((v) => {
+                    dbNewModel.push(entity);
                     return !!v.primary;
                 })
             ) {
                 TomgUtils.LogError(`Table ${entity.tscName} has no PK.`, false);
             }
         });
+        return dbNewModel;
     }
 
     public abstract DisconnectFromServer(): Promise<void>;

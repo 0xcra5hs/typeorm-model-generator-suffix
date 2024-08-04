@@ -78,7 +78,18 @@ export function columnName(oldColumnName: string, column?: Column): string {
     return oldColumnName;
 }
 
-export function fileName(oldFileName: string, suffixName: string): string {
-    const baseName = oldFileName.replace(/([A-Z].*)$/, "");
-    return baseName + suffixName;
+export function fileName(
+    oldFileName: string,
+    suffixFileName: string,
+    suffixClassName
+): string {
+    // Remove the suffixClassName from oldFileName
+    const newFileName = oldFileName.replace(suffixClassName, "");
+
+    // Convert to camelCase: make the first character lowercase
+    const baseName = newFileName.charAt(0).toLowerCase() + newFileName.slice(1);
+
+    // Append the suffixFileName
+    const result = baseName + suffixFileName;
+    return result;
 }

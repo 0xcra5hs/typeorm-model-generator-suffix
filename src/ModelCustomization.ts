@@ -254,13 +254,13 @@ function applyNamingStrategy(
     namingStrategy: typeof NamingStrategy,
     dbModel: Entity[],
     suffixClassName: string,
-    suffixFile: string
+    suffixFileName: string
 ): Entity[] {
     let retVal = changeRelationNames(dbModel);
     retVal = changeRelationIdNames(retVal);
     retVal = changeEntityNames(retVal, suffixClassName);
     retVal = changeColumnNames(retVal);
-    retVal = changeFileNames(retVal, suffixFile);
+    retVal = changeFileNames(retVal, suffixFileName, suffixClassName);
     return retVal;
 
     function changeRelationIdNames(model: Entity[]): Entity[] {
@@ -374,9 +374,17 @@ function applyNamingStrategy(
         });
         return entities;
     }
-    function changeFileNames(entities: Entity[], suffix: string): Entity[] {
+    function changeFileNames(
+        entities: Entity[],
+        suffixFileName: string,
+        suffixClassName: string
+    ): Entity[] {
         entities.forEach((entity) => {
-            entity.fileName = namingStrategy.fileName(entity.fileName, suffix);
+            entity.fileName = namingStrategy.fileName(
+                entity.fileName,
+                suffixFileName,
+                suffixClassName
+            );
         });
         return entities;
     }
