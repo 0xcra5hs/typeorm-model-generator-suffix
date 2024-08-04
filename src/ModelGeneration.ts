@@ -59,22 +59,27 @@ function generateModels(
     });
     databaseModel.forEach((element) => {
         let casedFileName = "";
+        const newFileName = element.fileName.replace(
+            generationOptions.suffixCaseFile,
+            ""
+        );
         switch (generationOptions.convertCaseFile) {
             case "camel":
-                casedFileName = changeCase.camelCase(element.fileName);
+                casedFileName = changeCase.camelCase(newFileName);
                 break;
             case "param":
-                casedFileName = changeCase.paramCase(element.fileName);
+                casedFileName = changeCase.paramCase(newFileName);
                 break;
             case "pascal":
-                casedFileName = changeCase.pascalCase(element.fileName);
+                casedFileName = changeCase.pascalCase(newFileName);
                 break;
             case "none":
-                casedFileName = element.fileName;
+                casedFileName = newFileName;
                 break;
             default:
                 throw new Error("Unknown case style");
         }
+        casedFileName += generationOptions.suffixCaseFile;
         const resultFilePath = path.resolve(
             entitiesPath,
             `${casedFileName}.ts`

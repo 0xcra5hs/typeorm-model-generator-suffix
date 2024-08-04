@@ -81,7 +81,7 @@ export function columnName(oldColumnName: string, column?: Column): string {
 export function fileName(
     oldFileName: string,
     suffixFileName: string,
-    suffixClassName
+    suffixClassName: string
 ): string {
     // Remove the suffixClassName from oldFileName
     const newFileName = oldFileName.replace(suffixClassName, "");
